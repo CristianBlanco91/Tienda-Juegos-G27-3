@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulario Usuarios</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/Menu}">Azarin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarUsu}">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarCli}">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarProv}">Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ventas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/Login}">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<body>
+		<div class="container mt=6">
+			<div class="col-sm-6">
+				<form th:action="@{/saveUsu}" th:object=${usuario} method="POST">
+					<div class="card">
+						<div class="card-header"></div>
+						<h2>Modulo Usuarios</h2>
+						<div class="card-body">
+							<div class="form-group">
+								<label>CEDULA</label>
+								<input th:field="*{Cedula_Usu}" type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>NOMBRE</label>
+								<input th:field="*{Nombre_Usu}" type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>CORREO</label>
+								<input th:field="*{Correo_Usu}" type="email" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>USUARIO</label>
+								<input th:field="*{Usuario_Usu}" type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>CLAVE</label>
+								<input th:field="*{Clave_Usu}" type="password" class="form-control"/>
+							</div>
+						</div>
+						<div class="card-footer">
+							<input type="submit" value="Guardar" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+			
+			</div>	
+		</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulario Clientes</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/Menu}">Azarin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarUsu}">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarCli}">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarProv}">Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ventas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/Login}">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<body>
+		<div class="container mt=6">
+			<div class="col-sm-6">
+				<form th:action="@{/saveCli}" th:object=${cliente} method="POST">
+					<div class="card">
+						<div class="card-header"></div>
+						<h2>Modulo Clientes</h2>
+						<div class="card-body">
+							<div class="form-group">
+								<label>CEDULA</label>
+								<input th:field="*{Cedula_Cli}" type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>NOMBRE</label>
+								<input th:field="*{Nombre_Cli}" type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>CORREO</label>
+								<input th:field="*{Correo_Cli}" type="email" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>DIRECCIÓN</label>
+								<input th:field="*{Direccion_Cli}" type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label>TELEFONO</label>
+								<input th:field="*{Telefono_Cli}" type="text" class="form-control"/>
+							</div>
+						</div>
+						<div class="card-footer">
+							<input type="submit" value="Guardar" class="btn btn-sucess">
+						</div>
+					</div>
+				</form>
+			
+			</div>	
+		</div>
+</body>
+</html>

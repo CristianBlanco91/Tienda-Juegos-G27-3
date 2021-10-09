@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tabla Proveedores</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/Menu}">Azarin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarUsu}">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarCli}">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/listarProv}">Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ventas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/Login}">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<body> <br><h1 style="text-align:center;">Tabla de Proveedores</h1><br>
+		<div class="container mt=4">
+			<table class="table table-dark table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>NIT</th>
+						<th>NOMBRE</th>
+						<th>DIRECCION</th>
+						<th>TELEFONO</th>
+						<th>CIUDAD</th>
+						<th>ACCIÓN</th>
+						<th>ACCIÓN</th>
+					</tr>
+				</thead>
+				<tbody>
+	  				<tr th:each="p:${proveedores}">
+						<td th:text="${p.NIT_Prov}"></td> 
+						<td th:text="${p.Nombre_Prov}"></td>
+						<td th:text="${p.Direccion_Prov}"></td>
+						<td th:text="${p.Telefono_Prov}"></td>
+						<td th:text="${p.Ciudad_Prov}"></td>
+						<td>
+						<a th:href="@{/editarProv/}+${p.NIT_Prov}" class="btn btn-warning" >Editar</a></td>
+						<td>
+						<a th:href="@{/eliminarProv/}+${p.NIT_Prov}" class="btn btn-danger">Eliminar</a></td>
+					</tr>
+					
+				</tbody>
+				
+
+			</table>
+		<a class="btn btn-primary" th:href="@{/newProv}">Nuevo</a>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="funciones.js"></script>
+</body>
+</html>
